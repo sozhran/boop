@@ -1,12 +1,17 @@
-"use client";
 import React from "react";
 
-export default function Boop({ rotation = 0, timing = 150, children }) {
+type BoopProps = {
+	rotation: number;
+	timing: number;
+	children: React.ReactNode[];
+};
+
+function Boop({ rotation, timing, children }: BoopProps) {
 	const [isBooped, setIsBooped] = React.useState(false);
 
 	const style = {
 		display: "inline-block",
-		backfaceVisibility: "hidden",
+		//backfaceVisibility: "hidden",
 		transform: isBooped ? `rotate(${rotation}deg)` : `rotate(0deg)`,
 		transition: `transform ${timing}ms`,
 	};
@@ -35,3 +40,5 @@ export default function Boop({ rotation = 0, timing = 150, children }) {
 		</span>
 	);
 }
+
+export default Boop;
