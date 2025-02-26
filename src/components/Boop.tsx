@@ -3,7 +3,7 @@ import React from "react";
 type BoopProps = {
 	rotation: number;
 	timing: number;
-	children: React.ReactNode[];
+	children: React.ReactNode | React.ReactNode[];
 };
 
 function Boop({ rotation, timing, children }: BoopProps) {
