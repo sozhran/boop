@@ -39,3 +39,17 @@ h1 {
 main p {
 	font-size: 100px;
 }
+
+.slide-left,
+.slide-right {
+	transform: translateX(0px);
+	transition: transform 400ms ease-out;
+}
+
+.slide-left:hover {
+	transform: translateX(-100px);
+}
+
+.slide-right:hover {
+	transform: translateX(100px);
+}

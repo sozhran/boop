@@ -1,20 +1,22 @@
+import { animated, useSpring } from "@react-spring/web";
 import React from "react";
 
 type BoopProps = {
 	rotation: number;
 	timing: number;
-	children: React.ReactNode | React.ReactNode[];
+	//type: "rotate" | "translate";
+	children: any;
 };
 
 function Boop({ rotation, timing, children }: BoopProps) {
 	const [isBooped, setIsBooped] = React.useState(false);
 
-	const style = {
+	const style = useSpring({
 		display: "inline-block",
-		//backfaceVisibility: "hidden",
 		transform: isBooped ? `rotate(${rotation}deg)` : `rotate(0deg)`,
 		transition: `transform ${timing}ms`,
-	};
+		config: { tension: 350, friction: 4 },
+	});
 
 	React.useEffect(() => {
 		if (!isBooped) {
@@ -35,9 +37,9 @@ function Boop({ rotation, timing, children }: BoopProps) {
 	};
 
 	return (
-		<span onMouseEnter={trigger} style={style}>
+		<animated.span onMouseEnter={trigger} style={style}>
 			{children}
-		</span>
+		</animated.span>
 	);
 }
 

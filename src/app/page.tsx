@@ -28,10 +28,14 @@ export default function Home() {
 
 	return (
 		<>
-			<h1>&#x1F33E; Hello! &#x1F33E;</h1>
+			<h1>
+				<span className="slide-left">&#x1F33E;</span>
+				<span>Hello!</span>
+				<span className="slide-right">&#x1F33E;</span>
+			</h1>
 			<main>
 				{emojis.map((emoji, index) => (
-					<Boop rotation={20} timing={150} key={index}>
+					<Boop rotation={25} timing={200} key={index}>
 						<p>{emoji}</p>
 					</Boop>
 				))}
